@@ -1,0 +1,84 @@
+<div class="container">
+  <form novalidate [formGroup]="formGroupSample" (ngSubmit)="onSubmit()">
+
+    <fieldset>
+      <!-- <div class="form-group" [ngClass]="{
+        'has-danger': firstName.dirty && submitted && firstName.invalid,
+        'has-success': firstName.dirty && firstName.valid
+      }"> -->
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName" required>
+      <span *ngIf="!formGroupSample.get('firstName').valid && 
+      fsubmitted">Enter proper
+        Email !!!</span>
+      <!-- <div class="form-group" [ngClass]="{
+        'has-danger': lastName.dirty && submitted && lastName.invalid,
+        'has-success':lastName.dirty && lastName.valid
+      }"> -->
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName" required>
+      <span *ngIf="!formGroupSample.get('lastName').valid && 
+      submitted">Enter proper
+        Email !!!</span>
+    </fieldset>
+
+
+    <!-- <div class="form-group" [ngClass]="{
+        'has-danger': email.dirty && submitted && email.invalid,
+        'has-success': email.dirty && email.valid
+   }"> -->
+    <label>Email</label>
+    <input type="email" [autocomplete]="off" class="form-control" formControlName="email" required>
+    <!-- <div class="form-control-feedback" *ngIf="submitted &&  email.errors">
+        <p *ngIf="email.errors.required">Email is required</p>
+        <p *ngIf="email.errors.pattern">The email address must contain at least the @ character</p>
+      </div> -->
+
+      <span *ngIf="!formGroupSample.get('email').valid && 
+      submitted">Enter proper
+        Email !!!</span>
+
+
+    <!-- <div class="form-group" [ngClass]="{
+        'has-danger': password.dirty && submitted && password.invalid,
+        'has-success':password.dirty && password.valid
+   }"> -->
+    <label>Password</label>
+    <input type="password" [autocomplete]="off" class="form-control" formControlName="password" required>
+    <!-- <div class="form-control-feedback" *ngIf="submitted && password.errors">
+        <p *ngIf="password.errors.required">Password is required</p>
+        <p *ngIf="password.errors.minlength">Password must be 8 characters long, we need another
+          {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters </p>
+      </div> -->
+
+      <span *ngIf="!formGroupSample.get('password').valid && 
+      submitted">Enter proper
+        Email !!!</span>
+
+
+
+    <!-- 
+    <div class="form-group" [ngClass]="{
+        'has-danger': language.dirty && language.invalid,
+        'has-success':language.dirty && language.valid
+      }"> -->
+    <label>Language</label>
+    <select class="form-control" formControlName="language">
+      <option value="">Please select a language</option>
+      <option *ngFor="let lang of langs" [value]="lang">{{lang}}
+      </option>
+    </select>
+    <span *ngIf="!formGroupSample.get('language').valid && 
+    submitted">Enter proper
+      Email !!!</span>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (submit)="onSubmit()">Submit
+      </button>
+    </div>
+
+
+  </form>
+
+</div>
+<div class="Valuediv" *ngIf="formGroupSample.touched">{{formGroupSample.value | json}}</div>

@@ -1,0 +1,13 @@
+.has-success .form-control {
+    border-color: #5cb85c;
+}
+.has-danger .form-control {
+    border-color: #d9534f;
+}
+.has-danger .form-control-feedback {
+    color: #d9534f;
+}
+.Valuediv{
+    background-color:red;
+    color:white;
+}
